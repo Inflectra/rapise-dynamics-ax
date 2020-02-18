@@ -1,2 +1,1 @@
-# rapise-dynamics-ax
-Framework for Testing Dynamics AX desktop client and Enterprise Portal
+Main test that defines the repository to push to SpiraTest.

@@ -1,0 +1,6 @@
+{
+  "browserLibrary": "Firefox HTML",
+  "browserPath": "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+  "browserParams": "-private  -width=1280 -height=720",
+  "clickMode": "auto"
+}
