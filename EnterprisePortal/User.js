@@ -16,6 +16,20 @@ function LogAssert(/**string*/ msg)
 	Tester.Assert(msg, false);
 }
 
+function EpFindObject(/**string*/ xpath)
+{
+	for(var i = 0; i < g_objectLookupAttempts; i++)
+	{
+		var obj = Navigator.Find(xpath);
+		if (obj)
+		{
+			return obj;
+		}
+		Global.DoSleep(g_objectLookupAttemptInterval);
+	}
+	return null;
+}
+
 /**
  * Launches Enterprise Portal in a browser. EnterprisePortalUrl, UserName, Password must be set in Config.xlsx
  */
@@ -58,7 +72,7 @@ function EpChangeCompany(/**string*/ company)
 	SeS('G_CompanyChooser_Name').DoSetText(company);
 	SeS('G_CompanyChooser_Apply_filter').DoClick();
 	
-	var obj = Navigator.Find("//span[@title='" + company + "']");
+	var obj = EpFindObject("//span[@title='" + company + "']");
 	if (!obj)
 	{
 		LogAssert("EsChangeCompany: company not found: " + company);
@@ -210,25 +224,26 @@ function EpFilterGrid(/**string*/ value, /**string*/ field, /**boolean*/ inDialo
 	}
 
 
-	var editField = Navigator.Find(prefix + "//input[contains(@id,'AxQuickFilterEdit') and @type='text']");
+	var editField = EpFindObject(prefix + "//input[contains(@id,'AxQuickFilterEdit') and @type='text']");
 	if (!editField)
 	{
-		LogAssert("EsFilterGrid: edit field not found");
+		LogAssert("EpFilterGrid: edit field not found");
 		return;	
 	}
-	var fieldCombo = Navigator.Find(prefix + "//span[contains(@id,'AxQuickFilterOuter')]/select");
+	var fieldCombo = EpFindObject(prefix + "//span[contains(@id,'AxQuickFilterOuter')]/select");
 	if (!fieldCombo)
 	{
-		LogAssert("EsFilterGrid: combobox field not found");
+		LogAssert("EpFilterGrid: combobox field not found");
 		return;
 	}
-	var filterButton = Navigator.Find(prefix + "//img[@title='Apply filter' and position()=1]");
+	var filterButton = EpFindObject(prefix + "//img[@title='Apply filter' and position()=1]");
 	if (!filterButton)
 	{
-		LogAssert("EsFilterGrid: filter button not found");
+		LogAssert("EpFilterGrid: filter button not found");
 		return;
 	}
 	
+	filterButton.DoEnsureVisible();
 	editField.DoClick();
 	editField.DoSetText(value);
 	fieldCombo.DoSelect(field);
@@ -250,7 +265,7 @@ function EpSelectFastTab(/**string*/ tab, /**boolean*/ collapse)
 		return;	
 	}
 	var xpath = "//iframe[contains(@id,'DlgFrame')]@@@//div[@class='dynSectionHeaderCaption' and contains(text(),'" + tab + "')]";
-	var obj = Navigator.Find(xpath);
+	var obj = EpFindObject(xpath);
 	if (!obj)
 	{
 		LogAssert("EpSelectFastTab: fast tab not found: " + tab);
@@ -308,7 +323,7 @@ function ClickListItem(/**objectId*/ list, /**string*/ item)
 function GetDialogTitle()
 {
 	var xpath = "//span[@id='dialogTitleSpan']";
-	var obj = Navigator.Find(xpath);
+	var obj = EpFindObject(xpath);
 	if (obj)
 	{
 		return obj.GetText();
@@ -322,7 +337,7 @@ function GetDialogTitle()
 function GetSectionTitle()
 {
 	var xpath = "(//iframe[contains(@id,'DlgFrame')])[last()]@@@//a[contains(@id,'AxSection_ExpenseHeader_AxSectionHeader')]";
-	var obj = Navigator.Find(xpath);
+	var obj = EpFindObject(xpath);
 	if (obj)
 	{
 		return obj.GetText();
