@@ -41,6 +41,32 @@ function DomDynamicsEP_OnXPathNotFound(xpath)
 		}
 	}
 	
+
+    // //table[@id='ctl00_m_g_9b6a4788_5cd5_4b01_b622_488d1ef005fe_ctl01_ProjectForm_IdentificationGrp_ctl28_LookupGridTable']
+    // guid may change: 9b6a4788_5cd5_4b01_b622_488d1ef005fe
+    // ctlNo may change: ctl01
+
+	var xpath = newXpath;
+	var re = new RegExp("@id=['\"](ctl([a-z0-9]+|[_]|[A-Z][a-zA-Z]+)+)['\"]", "g");
+	while(match = re.exec(xpath))
+	{
+		var atStr = match[0];
+		var val = match[1];
+		var res = val.match(/[A-Z][a-zA-Z]+/g);
+		if (res && res.length > 0)
+		{
+			var predicate = "";
+			for(var i = 0; i < res.length; i++)
+			{
+				if (i > 0)
+				{
+					predicate += " and ";
+				}
+				predicate += "contains(@id,'" + res[i] + "')";
+			}
+			newXpath = newXpath.replace(atStr, predicate);
+		}
+	}
 	
 	if (l3) Log3("New XPATH: " + newXpath);
 	
