@@ -110,6 +110,9 @@
         <Path>TC_CreateTimesheet\TC_CreateTimesheet.sstest</Path>
       </TestFile>
       <TestFile>
+        <Path>TC_Template\TC_Template.sstest</Path>
+      </TestFile>
+      <TestFile>
         <Path>User.js</Path>
       </TestFile>
     </TestFiles>
