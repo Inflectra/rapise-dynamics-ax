@@ -33,7 +33,7 @@ Changes current company.
 
 ![DaxChangeCompany RVL](Media/DaxChangeCompany.png)
 
-Open `Select company` dialog and chooses a company from the list.
+Opens `Select company` dialog and chooses a company from the list.
 
 <img alt="ChangeCompany RVL" src="Media/ChangeCompany.png" width="382" />
 
