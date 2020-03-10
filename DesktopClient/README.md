@@ -65,7 +65,7 @@ Selects Fast Tab with a given name.
 
 This function expands a given tab and scrolls to it if necessary.
 
-![SelectFastTab RVL](Media/SelectFastTab.png)
+<img alt="SelectFastTab RVL" src="Media/SelectFastTab.png" width="586" />
 
 ### DaxFilterGrid
 
