@@ -35,7 +35,7 @@ Changes current company.
 
 Open `Select company` dialog and chooses a company from the list.
 
-![ChangeCompany RVL](Media/ChangeCompany.png)
+<img alt="ChangeCompany RVL" src="Media/ChangeCompany.png" width="382" />
 
 ### DaxOpenModule
 
@@ -45,7 +45,7 @@ Makes sure that given module is enabled. Use it before doing navigation in the a
 
 Opens Navigation Pane Options dialog and sets the checkbox near given module.
 
-![OpenModule RVL](Media/OpenModule.png)
+<img alt="OpenModule RVL" src="Media/OpenModule.png" width="290" />
 
 ### DaxNavigate
 
@@ -55,7 +55,7 @@ Navigates to a specific page using the address bar.
 
 This function clicks in the address area, enters a page address and hits enter key.
 
-![Navigate RVL](Media/Navigate.png)
+<img alt="Navigate RVL" src="Media/Navigate.png" width="528" />
 
 ### DaxSelectFastTab
 
@@ -75,7 +75,7 @@ Applies a filter to table data.
 
 This function enters a filter value, then selects a field for filtering and clicks the filter button.
 
-![FilterGrid RVL](Media/FilterGrid.png)
+<img alt="FilterGrid RVL" strc="Media/FilterGrid.png" width="312" />
 
 ### DaxOpenDropdown
 
@@ -83,7 +83,7 @@ Clicks at the right part of an object. Use it to expand dropdowns.
 
 ![DaxOpenDropdown RVL](Media/DaxOpenDropdown.png)
 
-![OpenDropdown RVL](Media/OpenDropdown.png)
+<img alt="OpenDropdown RVL" src="Media/OpenDropdown.png" width="284" />
 
 ### DaxClickCell
 
@@ -91,7 +91,7 @@ Clicks into a cell of a grid until placeholder object appears. Sometimes DAX ign
 
 ![DaxClickCell RVL](Media/DaxClickCell.png)
 
-![ClickCell RVL](Media/ClickCell.png)
+<img alt="ClickCell RVL" src="Media/ClickCell.png" width="818" />
 
 ### DaxChooseFile
 
@@ -99,7 +99,7 @@ Enters file name and clicks Open button in Attach File dialog.
 
 ![DaxChooseFile RVL](Media/DaxChooseFile.png)
 
-![ChooseFile RVL](Media/ChooseFile.png)
+<img alt="ChooseFile RVL" src="Media/ChooseFile.png" width="625" />
 
 ### SetOutputValue
 
