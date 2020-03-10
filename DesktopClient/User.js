@@ -123,7 +123,7 @@ function DaxChangeCompany(/**string*/ company)
 }
 
 /**
- * Navigates to a specific page using address bar.
+ * Navigates to a specific page using the address bar.
  * @param page Address of a page (e.g. General ledger/Journals).
  * @param [company] Optional. Name of a company. Specify if it is not the currently opened company.
  */
