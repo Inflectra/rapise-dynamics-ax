@@ -4,8 +4,8 @@ Home for Dynamics AX 2012 desktop client test cases.
 
 - Reusable functions are defined in `User.js`.
 - Data for each test case is defined in `Data.xlsx`.
-- `Dropdowns.xlsx` contains lists of values for RVL dropdowns.
-- `Output.xlsx` is used to persist data between test executions.
+- `Dropdowns.xlsx` contains lists of values for [RVL dropdowns](https://rapisedoc.inflectra.com/Guide/rvl_editor/#param-dropdowns).
+- `Output.xlsx` is used to persist data between test executions (see SetOutputValue, GetOutputValue common functions below).
 
 The way of test parameterization and reading data from an Excel spreadsheet is described in the docs:
 
@@ -75,7 +75,7 @@ Applies a filter to table data.
 
 This function enters a filter value, then selects a field for filtering and clicks the filter button.
 
-<img alt="FilterGrid RVL" strc="Media/FilterGrid.png" width="312" />
+<img alt="FilterGrid RVL" src="Media/FilterGrid.png" width="312" />
 
 ### DaxOpenDropdown
 
