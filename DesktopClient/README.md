@@ -21,6 +21,12 @@ Launches Dynamics AX desktop client and waits for it to show up on screen.
 
 ![DaxLaunch RVL](Media/DaxLaunch.png)
 
+### DaxLaunchWithConfig
+
+Launches Dynamics AX desktop client using a given Dynaics Configuration File.
+
+![DaxLaunchWithConfig RVL](Media/DaxLaunchWithConfig.png)
+
 ### DaxClose
 
 Closes Dynamics AX desktop client.

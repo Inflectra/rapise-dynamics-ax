@@ -14,27 +14,27 @@ function LogAssert(/**string*/ msg)
 	Tester.Assert(msg, false);
 }
 
+function _DaxIsRunning()
+{
+	var windows = g_util.FindWindows("regex:.Microsoft Dynamics AX.*", "AxMainFrame");
+	return windows.length > 0;
+}
+
+function _MaximizeDax()
+{
+	var windows = g_util.FindWindows("regex:.Microsoft Dynamics AX.*", "AxMainFrame");
+	if (windows.length > 0)
+	{
+		windows[0].Maximized = true;
+	}
+}
+
 /**
  * Launches Dynamics AX desktop client and waits for it to show up on screen.
  * @returns `true` is the client is already running or was started successfully, otherwise - `false`
  */
 function DaxLaunch() /**boolean*/
 {
-	function _DaxIsRunning()
-	{
-		var windows = g_util.FindWindows("regex:.Microsoft Dynamics AX.*", "AxMainFrame");
-		return windows.length > 0;
-	}
-	
-	function _MaximizeDax()
-	{
-		var windows = g_util.FindWindows("regex:.Microsoft Dynamics AX.*", "AxMainFrame");
-		if (windows.length > 0)
-		{
-			windows[0].Maximized = true;
-		}
-	}
-	
 	if (_DaxIsRunning())
 	{
 		Tester.Message("Dynamics AX Client is already running");
@@ -64,6 +64,36 @@ function DaxLaunch() /**boolean*/
 	
 	Tester.Message("Dynamics AX Client did not start");
 	return false;
+}
+
+/**
+ * Launches Dynamics AX desktop client using a given Dynaics Configuration File.
+ */
+function DaxLaunchWithConfig(/**string*/ config)
+{
+	if (_DaxIsRunning())
+	{
+		Tester.Message("Dynamics AX Client is already running");
+		return true;
+	}
+
+	var path = "\"" + Global.GetFullPath(config) + "\"";
+	Tester.Message("DXC path: " + path);
+	Global.DoLaunch(path);
+	
+	for(var i = 0; i < 60; i++)
+	{
+		if (_DaxIsRunning())
+		{
+			Tester.Message("Dynamics AX Client started successfully");
+			_MaximizeDax();
+			return true;
+		}
+		Global.DoSleep(1000);
+	}
+	
+	Tester.Message("Dynamics AX Client did not start");
+	return false;	
 }
 
 /**
@@ -123,7 +153,7 @@ function DaxChangeCompany(/**string*/ company)
 }
 
 /**
- * Navigates to a specific page using the address bar.
+ * Navigates to a specific page using address bar.
  * @param page Address of a page (e.g. General ledger/Journals).
  * @param [company] Optional. Name of a company. Specify if it is not the currently opened company.
  */
