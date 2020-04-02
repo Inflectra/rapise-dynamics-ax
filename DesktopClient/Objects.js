@@ -344,7 +344,7 @@ var saved_script_objects={
 		"object_name": "G_CompanyGrid",
 		"ignore_object_name": true,
 		"object_library": "DynamicsAX",
-		"window_name": "regex:.Select company.*",
+		"window_name": "regex:.*",
 		"location": "regex:\u202aSelect company\u202c.*/SysDataAreaSelect/Pane/Grid"
 	},
 	"G_CompanyOK": {
@@ -389,7 +389,7 @@ var saved_script_objects={
 		"object_name": "G_CompanyOK",
 		"ignore_object_name": true,
 		"object_library": "UIAutomation",
-		"window_name": "regex:.Select company.*",
+		"window_name": "regex:.*",
 		"location": "regex:\u202aSelect company\u202c.*/SysDataAreaSelect/Pane[1]/Pane/OK"
 	},
 	"G_CloseDax": {
@@ -487,7 +487,8 @@ var saved_script_objects={
 					],
 					"window_name": "param:window_name",
 					"window_class": "AxPopupFrame"
-				}
+				},
+				"enabled": false
 			},
 			{
 				"locator_name": "UIAutomation",
