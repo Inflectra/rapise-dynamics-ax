@@ -6,6 +6,7 @@ Home for Enterprise Portal test cases.
 - Data for each test case is defined in `Data.xlsx`.
 - `Dropdowns.xlsx` contains lists of values for RVL dropdowns.
 - `Output.xlsx` is used to persist data between test executions.
+- `Config.xlsx` contains URL and UserName/Password to access the Enterprise Portal.
 
 The way of test parameterization and reading data from an Excel spreadsheet is described in the docs:
 
