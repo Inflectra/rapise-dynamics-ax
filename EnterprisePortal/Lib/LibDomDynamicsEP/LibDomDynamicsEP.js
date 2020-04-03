@@ -68,6 +68,15 @@ function DomDynamicsEP_OnXPathNotFound(xpath)
 		}
 	}
 	
+	if (!g_recording)
+	{
+		if (newXpath.indexOf("iframe") == -1)
+		{
+			// Fix for Chrome iframe issue
+			newXpath = "(//iframe[contains(@id,'DlgFrame')])[last()]@@@" + newXpath;
+		}
+	}
+	
 	if (l3) Log3("New XPATH: " + newXpath);
 	
 	return newXpath;
@@ -123,7 +132,9 @@ var DomDynamicsEP_WebAppProfile =
 			{ name: "fieldname" }
 		],
 		classes: [
-			{ name: "AxInputField" }
+			{ name: "AxInputField" },
+			{ name: "dynGridViewTable" },
+			{ name: "dynToolbarItem" }
 		],
 		anchors: [
 			 /* { xpath: "//div[@id='shellArea']" } */
