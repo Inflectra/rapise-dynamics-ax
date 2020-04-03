@@ -610,12 +610,25 @@ function DomDynamicsEPPluginAttach(browser, actionHolder)
 					}
 					else
 					{
-						var actionClick = {
-								name: "ClickCell",
-								description: "Click a cell in the grid",
-								params: [cell.row, cell.col]
-							};	
-						res.action = actionClick;
+						var isOpenButton = __getAttribute(element, 'axctrltype') == "AxLookupButton";
+						if (isOpenButton)
+						{
+							var actionLookup = {
+									name: "Lookup",
+									description: "Click lookup button on a cell in the grid",
+									params: [cell.row, cell.col]
+								};	
+							res.action = actionLookup;
+						}
+						else
+						{
+							var actionClick = {
+									name: "ClickCell",
+									description: "Click a cell in the grid",
+									params: [cell.row, cell.col]
+								};	
+							res.action = actionClick;
+						}
 					}
 				}
 			}

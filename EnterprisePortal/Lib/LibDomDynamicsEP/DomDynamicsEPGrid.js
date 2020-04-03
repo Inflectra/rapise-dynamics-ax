@@ -8,6 +8,11 @@ var DomDynamicsEPGridBehavior = {
 			DoAction: DomDynamicsEPGridBehavior_DoClickCell
 		},
 		{
+			actionName: "Lookup",
+			/** @action */
+			DoAction: DomDynamicsEPGridBehavior_DoLookup
+		},		
+		{
 			actionName: "ClickColumn",
 			/** @action */
 			DoAction: DomDynamicsEPGridBehavior_DoClickColumn
@@ -140,6 +145,36 @@ function DomDynamicsEPGridBehavior_DoClickCell(/**number|string*/ row, /**string
 	return false;
 }
 
+function DomDynamicsEPGridBehavior_DoLookup(/**number|string*/ row, /**string|number*/ col)
+{
+	var cell = DomDynamicsEPGrid_FindCell(this, row, col);
+	if (cell)
+	{
+		DomDynamicsEPGridBehavior_ClickCenter(cell);
+		
+		Global.DoSleep(100);
+		
+		return DomDynamicsEPGridBehavior_ClickLookup(cell);
+	}
+	return false;
+}
+
+function DomDynamicsEPGridBehavior_ClickCenter(cell)
+{
+	cell._DoEnsureVisible();
+	cell._DoClick();
+}
+
+function DomDynamicsEPGridBehavior_ClickLookup(cell)
+{
+	var lookupButton = cell._DoDOMQueryXPath("../..//div[@class='dynLookupButtonImage']");
+	if (lookupButton && lookupButton.length)
+	{
+		return lookupButton[0]._DoClick();
+	}
+	return false;
+}
+
 function DomDynamicsEPGridBehavior_GetCell(/**number|string*/row, /**string|number*/col)  /**string*/ 
 {
 	var cell = DomDynamicsEPGrid_FindCell(this, row, col);
@@ -255,6 +290,13 @@ function DomDynamicsEPGrid_FindCell(obj, row, col)
 		if (typeof(row) == "number")
 		{
 			// check for more specific internal controls
+			var input = cell._DoDOMQueryXPath(".//table//input[@type='text']");
+			if (input && input.length > 0)
+			{
+				cell = input[0];
+				return cell;
+			}			
+			
 			var span = cell._DoDOMQueryXPath(".//table//span");
 			if (span && span.length > 0)
 			{
