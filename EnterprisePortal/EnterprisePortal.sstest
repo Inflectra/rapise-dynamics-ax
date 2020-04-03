@@ -83,7 +83,7 @@
     </Groups>
     <TestFiles>
       <TestFile>
-        <Path>..\Config.xlsx</Path>
+        <Path>Config.xlsx</Path>
       </TestFile>
       <TestFile>
         <Path>Data.xlsx</Path>

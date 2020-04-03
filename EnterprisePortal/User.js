@@ -36,9 +36,9 @@ function EpFindObject(/**string*/ xpath)
  */
 function EpLaunch()
 {
-	var url = Global.GetProperty("EnterprisePortalUrl", "", "%WORKDIR%\\..\\Config.xlsx");
-	var usr = Global.GetProperty("UserName", "", "%WORKDIR%\\..\\Config.xlsx");
-	var pwd = Global.GetProperty("Password", "", "%WORKDIR%\\..\\Config.xlsx");
+	var url = Global.GetProperty("EnterprisePortalUrl", "", "%WORKDIR%\\Config.xlsx");
+	var usr = Global.GetProperty("UserName", "", "%WORKDIR%\\Config.xlsx");
+	var pwd = Global.GetProperty("Password", "", "%WORKDIR%\\Config.xlsx");
 	url = url.replace("://", "://" + usr + ":" + pwd + "@");
 	Navigator.Open(url);
 	Navigator.SetPosition(0, 0);
@@ -49,9 +49,9 @@ function EpLaunch()
  */
 function EsLaunch()
 {
-	var url = Global.GetProperty("EmployeeServicesUrl", "", "%WORKDIR%\\..\\Config.xlsx");
-	var usr = Global.GetProperty("UserName", "", "%WORKDIR%\\..\\Config.xlsx");
-	var pwd = Global.GetProperty("Password", "", "%WORKDIR%\\..\\Config.xlsx");
+	var url = Global.GetProperty("EmployeeServicesUrl", "", "%WORKDIR%\\Config.xlsx");
+	var usr = Global.GetProperty("UserName", "", "%WORKDIR%\\Config.xlsx");
+	var pwd = Global.GetProperty("Password", "", "%WORKDIR%\\Config.xlsx");
 	url = url.replace("://", "://" + usr + ":" + pwd + "@");
 	Navigator.Open(url);
 	Navigator.SetPosition(0, 0);

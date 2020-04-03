@@ -28,7 +28,7 @@
     <Groups />
     <TestFiles>
       <TestFile>
-        <Path>Config.xlsx</Path>
+        <Path>DesktopClient\DesktopClient.sstest</Path>
       </TestFile>
       <TestFile>
         <Path>EnterprisePortal\EnterprisePortal.sstest</Path>
