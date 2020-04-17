@@ -44,11 +44,19 @@ function DomDynamicsEPPluginAttach(browser, actionHolder)
 		};
 		
 	  	//debugger;
-	  	 
+	  	var comboType = 1;
 		var root = __hasParentWithAttr(element, 'class', /dynGroupDataCell/ig);
 		if (!root)
 		{
-			return rvalue;
+			var root = __hasParentWithAttr(element, 'class', /dynJoiningTable/ig);
+			if (!root)
+			{
+				return rvalue;
+			}
+			else
+			{
+				comboType = 2;
+			}
 		}
 		
 		var buttons = __doDOMQueryXPath(root, ".//a[@axctrltype='AxLookupButton']", false);
@@ -59,20 +67,43 @@ function DomDynamicsEPPluginAttach(browser, actionHolder)
 		
 		if(root)
 		{
-			var labels = __doDOMQueryXPath(root, "./preceding-sibling::td//label", false);
-			if (!labels || labels.length == 0)
+			var name = "";
+			var xpath = "";
+			if (comboType == 1)
 			{
-				return rvalue;
-			}
-		
-			var label = labels[0];
-			var name = label.childNodes[0].nodeValue;
+				var labels = __doDOMQueryXPath(root, "./preceding-sibling::td//label", false);
+				if (!labels || labels.length == 0)
+				{
+					return rvalue;
+				}
 			
-			var xpath = "//td[@class='dynGroupDataCell' and ./preceding-sibling::td[@class='dynGroupHeaderCell']//label/text()='" + name + "']";
-			var generatedPath = SeS_GenerateXPath(label);
-			if (generatedPath.indexOf("@@@") != -1)
+				var label = labels[0];
+				name = label.childNodes[0].nodeValue;
+				
+				xpath = "//td[@class='dynGroupDataCell' and ./preceding-sibling::td[@class='dynGroupHeaderCell']//label/text()='" + name + "']";
+				var generatedPath = SeS_GenerateXPath(label);
+				if (generatedPath.indexOf("@@@") != -1)
+				{
+					xpath = generatedPath.split("@@@")[0] + "@@@" + xpath;
+				}
+			}
+			else
 			{
-				xpath = generatedPath.split("@@@")[0] + "@@@" + xpath;
+				var labels = __doDOMQueryXPath(root, ".//span[contains(@style,'display:inline-block')]", false);
+				if (!labels || labels.length == 0)
+				{
+					return rvalue;
+				}
+			
+				var label = labels[0];
+				name = label.innerText;
+				
+				xpath = "//table[@class='dynJoiningTable' and .//span[contains(@style,'display:inline-block')]/text()='" + name + "']";
+				var generatedPath = SeS_GenerateXPath(label);
+				if (generatedPath.indexOf("@@@") != -1)
+				{
+					xpath = generatedPath.split("@@@")[0] + "@@@" + xpath;
+				}
 			}
 
 			var res = {
@@ -473,7 +504,7 @@ function DomDynamicsEPPluginAttach(browser, actionHolder)
 			}
 			
 			// User may click into a cell that contains a table
-			var nestedTable = __hasParentWithAttr(cellEl, "class", /dynJoiningTableSFK/ig);
+			var nestedTable = __hasParentWithAttr(cellEl, "class", /dynJoiningTableSFK|dynJoiningTable/ig);
 			if (nestedTable)
 			{
 				cellEl = nestedTable.parentNode;
