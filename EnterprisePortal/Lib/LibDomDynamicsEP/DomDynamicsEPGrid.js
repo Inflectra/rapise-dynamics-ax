@@ -68,7 +68,8 @@ function DomDynamicsEPGridBehavior_DoSetText(/**number|string*/ row, /**string|n
 	var cell = DomDynamicsEPGrid_FindCell(this, row, col);
 	if (cell)
 	{
-		// TODO
+		cell._DoSetText();
+        return true;
 	}
 	return false;
 }
