@@ -26,7 +26,7 @@ var DomDynamicsEPComboboxBehavior = {
 
 function DomDynamicsEPComboboxBehavior_DoOpen()
 {
-	var openButton = this._DoDOMQueryXPath(".//a[@axctrltype='AxLookupButton']");
+	var openButton = this._DoDOMQueryXPath(".//a[@axctrltype='AxLookupButton']/div");
 	if (openButton == null || openButton.length == 0)
 	{
 		return false;
