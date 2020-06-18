@@ -275,7 +275,12 @@ function DomDynamicsEPPluginAttach(browser, actionHolder)
 				}
 			}
 			var generatedPath = SeS_GenerateXPath(element);
-			if (generatedPath.indexOf("@@@") != -1)
+			if (!name)
+			{
+				// name not calculated, use generated xpath
+				xpath = generatedPath;
+			}
+			else if (generatedPath.indexOf("@@@") != -1)
 			{
 				xpath = generatedPath.split("@@@")[0] + "@@@" + xpath;
 			}
