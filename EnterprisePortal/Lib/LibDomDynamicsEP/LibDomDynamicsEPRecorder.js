@@ -481,7 +481,7 @@ function DomDynamicsEPPluginAttach(browser, actionHolder)
 	
 		function _getCell(element)
 		{
-			var cell = { row: 0, col: 0, selectAll: 0, selectRow: 0, clickColumn: 0 };
+			var cell = { row: 0, col: 0, selectAll: 0, selectRow: 0, clickColumn: 0, selectItem: null };
 
 			//debugger;			
 			var _class = __getAttribute(element, "class");
@@ -562,7 +562,14 @@ function DomDynamicsEPPluginAttach(browser, actionHolder)
 				
 				if (cell.clickColumn == 0)
 				{
-					cell.row = element.innerText;
+					if (element.tagName.toLowerCase() == "select")
+					{
+						cell.selectItem = element[element.value].textContent;
+					}
+					else
+					{
+						cell.row = element.innerText;
+					}
 					
 					if (!cell.row)
 					{
@@ -644,6 +651,10 @@ function DomDynamicsEPPluginAttach(browser, actionHolder)
 							};
 						res.action = columnClick;
 					}
+					else if (cell.selectItem != null)
+					{
+						res.cancel = true;
+					}
 					else
 					{
 						var isOpenButton = __getAttribute(element, 'axctrltype') == "AxLookupButton";
@@ -687,6 +698,16 @@ function DomDynamicsEPPluginAttach(browser, actionHolder)
 					res.action = actionText;
 				}
 			}
+			else if (evt == "Select")
+			{
+				var cell = _getCell(element);
+				var actionSelect = {
+						name: "SelectItem",
+						description: "Selects an item in the dropdown of a cell in the grid",
+						params: [cell.row, cell.col, cell.selectItem]
+					};	
+				res.action = actionSelect;
+			}
 			
 			// Actions 
 			rvalue.rcode = R_ACTION_FOUND;
@@ -705,6 +726,12 @@ function DomDynamicsEPPluginAttach(browser, actionHolder)
 		function _checkDomDynamicsEPControls()
 		{
 			// Test each object type supported by the library
+			var r = manageExceptions(IsDomDynamicsEPGrid)(evt, element, eventOpts, objName, description, flavor, items);
+			if(r.rcode == R_OBJECT_FOUND || r.rcode == R_ACTION_FOUND)
+			{
+				return r.result;
+			}
+			
 			var r = manageExceptions(IsDomDynamicsEPCombobox)(evt, element, eventOpts, objName, description, flavor, items);
 			if(r.rcode == R_OBJECT_FOUND || r.rcode == R_ACTION_FOUND)
 			{
@@ -734,12 +761,6 @@ function DomDynamicsEPPluginAttach(browser, actionHolder)
 			{
 				return r.result;
 			}
-			
-			var r = manageExceptions(IsDomDynamicsEPGrid)(evt, element, eventOpts, objName, description, flavor, items);
-			if(r.rcode == R_OBJECT_FOUND || r.rcode == R_ACTION_FOUND)
-			{
-				return r.result;
-			}			
 		}
 		
 		if(typeof(g_debug)!="undefined"&&g_debug)

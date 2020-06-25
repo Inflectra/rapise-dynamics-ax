@@ -8,6 +8,11 @@ var DomDynamicsEPGridBehavior = {
 			DoAction: DomDynamicsEPGridBehavior_DoClickCell
 		},
 		{
+			actionName: "SelectItem",
+			/** @action */
+			DoAction: DomDynamicsEPGridBehavior_DoSelectItem
+		},
+		{
 			actionName: "Lookup",
 			/** @action */
 			DoAction: DomDynamicsEPGridBehavior_DoLookup
@@ -68,8 +73,8 @@ function DomDynamicsEPGridBehavior_DoSetText(/**number|string*/ row, /**string|n
 	var cell = DomDynamicsEPGrid_FindCell(this, row, col);
 	if (cell)
 	{
-		cell._DoSetText();
-        return true;
+		cell._DoEnsureVisible();
+		return cell._DoSetText(text);
 	}
 	return false;
 }
@@ -142,6 +147,17 @@ function DomDynamicsEPGridBehavior_DoClickCell(/**number|string*/ row, /**string
 			cell._DoClick(xOffset, yOffset);
 			return cell._DoClick(xOffset, yOffset);
 		}
+	}
+	return false;
+}
+
+function DomDynamicsEPGridBehavior_DoSelectItem(/**number|string*/ row, /**string|number*/ col, /**string*/ item)
+{
+	var cell = DomDynamicsEPGrid_FindCell(this, row, col);
+	if (cell)
+	{
+		cell._DoEnsureVisible();
+		return cell._DoSelect(item);
 	}
 	return false;
 }
@@ -296,12 +312,26 @@ function DomDynamicsEPGrid_FindCell(obj, row, col)
 			{
 				cell = input[0];
 				return cell;
-			}			
+			}
 			
 			var span = cell._DoDOMQueryXPath(".//table//span");
 			if (span && span.length > 0)
 			{
 				cell = span[0];
+				return cell;
+			}
+			
+			var input = cell._DoDOMQueryXPath(".//input[@type='text']");
+			if (input && input.length > 0)
+			{
+				cell = input[0];
+				return cell;
+			}
+			
+			var select = cell._DoDOMQueryXPath(".//select");
+			if (select && select.length > 0)
+			{
+				cell = select[0];
 				return cell;
 			}
 			
