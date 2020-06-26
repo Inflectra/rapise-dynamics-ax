@@ -74,7 +74,17 @@ function DomDynamicsEPGridBehavior_DoSetText(/**number|string*/ row, /**string|n
 	if (cell)
 	{
 		cell._DoEnsureVisible();
-		return cell._DoSetText(text);
+		if (text)
+		{
+			return cell._DoSetText(text);
+		}
+		else
+		{
+			cell._DoClick();
+			cell._DoSendKeys("^a");
+			cell._DoSendKeys("{DEL}");
+			return true;
+		}
 	}
 	return false;
 }
