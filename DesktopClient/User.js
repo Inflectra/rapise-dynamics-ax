@@ -180,7 +180,25 @@ function DaxSelectFastTab(/**string*/ tab)
 		return;
 	}
 	var obj = SeS("G_FastTabs");
-	obj.DoSelectTab(tab);
+	var res = obj._DoSelectTab(tab);
+	if (!res)
+	{
+		var objInfo = _SeSGetObjectInfo("G_FastTabs");
+		var condition = UIAutomationLocator2._makePredicate(objInfo.locations[0].location);
+		var el = g_UIAutomationWrapper.FindElementByCondition(obj.instance, 4, JSON.stringify(condition));
+		if (el)
+		{
+			var nestedObj = SeSTryMatch(el, DynamicsAXFastTabsRule, objInfo);
+			if (nestedObj)
+			{
+				res = nestedObj._DoSelectTab(tab);
+			}
+		}
+	}
+	
+	Tester.Assert("Fast Tab selected: " + tab, res);
+	
+	return res;
 }
 
 /**
