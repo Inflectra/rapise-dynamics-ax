@@ -23,7 +23,7 @@ Launches Dynamics AX desktop client and waits for it to show up on screen.
 
 ### DaxLaunchWithConfig
 
-Launches Dynamics AX desktop client using a given Dynaics Configuration File.
+Launches Dynamics AX desktop client using a given Dynamics Configuration File.
 
 ![DaxLaunchWithConfig RVL](Media/DaxLaunchWithConfig.png)
 

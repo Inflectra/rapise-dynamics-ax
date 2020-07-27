@@ -67,7 +67,7 @@ function DaxLaunch() /**boolean*/
 }
 
 /**
- * Launches Dynamics AX desktop client using a given Dynaics Configuration File.
+ * Launches Dynamics AX desktop client using a given Dynamics Configuration File.
  */
 function DaxLaunchWithConfig(/**string*/ config)
 {
