@@ -1,0 +1,120 @@
+{
+	"EP": {
+		"window_name": "Global Objects",
+		"flavor": "GlobalObject",
+		"actions": [
+			{
+				"name": "Launch",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "",
+				"paramInfo": {}
+			},
+			{
+				"name": "EsLaunch",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "",
+				"paramInfo": {}
+			},
+			{
+				"name": "ChangeCompany",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ company",
+				"paramInfo": {}
+			},
+			{
+				"name": "EsOpenModule",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ module",
+				"paramInfo": {}
+			},
+			{
+				"name": "OpenModule",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ module",
+				"paramInfo": {}
+			},
+			{
+				"name": "SelectTab",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ tab",
+				"paramInfo": {}
+			},
+			{
+				"name": "ClickRibbon",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ button, /**objectId*/ waitFor",
+				"paramInfo": {}
+			},
+			{
+				"name": "FilterGrid",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ value, /**string*/ field, /**boolean*/ inDialog",
+				"paramInfo": {}
+			},
+			{
+				"name": "SelectFastTab",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ tab, /**boolean*/ collapse",
+				"paramInfo": {}
+			},
+			{
+				"name": "ClickListItem",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**objectId*/ list, /**string*/ item",
+				"paramInfo": {}
+			},
+			{
+				"name": "GetDialogTitle",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "",
+				"paramInfo": {}
+			},
+			{
+				"name": "GetSectionTitle",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "",
+				"paramInfo": {}
+			},
+			{
+				"name": "GetTimesheetId",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "",
+				"paramInfo": {}
+			},
+			{
+				"name": "GetExpenseReportId",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "",
+				"paramInfo": {}
+			}
+		]
+	}
+}

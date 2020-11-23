@@ -40,6 +40,9 @@
             <Groups />
             <TestFiles>
               <TestFile>
+                <Path>Lib\LibDomDynamicsEP\DomDynamicsEP.js</Path>
+              </TestFile>
+              <TestFile>
                 <Path>Lib\LibDomDynamicsEP\DomDynamicsEPButton.js</Path>
               </TestFile>
               <TestFile>

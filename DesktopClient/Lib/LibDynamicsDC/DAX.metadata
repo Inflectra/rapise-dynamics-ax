@@ -1,0 +1,96 @@
+{
+	"DAX": {
+		"window_name": "Global Objects",
+		"flavor": "GlobalObject",
+		"actions": [
+			{
+				"name": "Launch",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "",
+				"paramInfo": {}
+			},
+			{
+				"name": "LaunchWithConfig",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ config",
+				"paramInfo": {}
+			},
+			{
+				"name": "Close",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "",
+				"paramInfo": {}
+			},
+			{
+				"name": "OpenModule",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ module",
+				"paramInfo": {}
+			},
+			{
+				"name": "ChangeCompany",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ company",
+				"paramInfo": {}
+			},
+			{
+				"name": "Navigate",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ page, /**string*/ company",
+				"paramInfo": {}
+			},
+			{
+				"name": "SelectFastTab",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ tab",
+				"paramInfo": {}
+			},
+			{
+				"name": "FilterGrid",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ value, /**string*/ field",
+				"paramInfo": {}
+			},
+			{
+				"name": "OpenDropdown",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**objectId*/ objectId",
+				"paramInfo": {}
+			},
+			{
+				"name": "ClickCell",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**objectId*/ objectId, /**objectId*/ waitFor, /**string|number*/ row, /**string|number*/ col, /**string*/ clickType, /**number*/ xOffset, /**number*/ yOffset",
+				"paramInfo": {}
+			},
+			{
+				"name": "ChooseFile",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ fileName",
+				"paramInfo": {}
+			}
+		]
+	}
+}

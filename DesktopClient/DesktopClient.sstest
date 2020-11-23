@@ -27,6 +27,31 @@
     <FilterPath />
     <Groups>
       <TestGroup>
+        <Name>Lib</Name>
+        <IsFilterGroup>false</IsFilterGroup>
+        <FilterWildcard>*.*</FilterWildcard>
+        <FilterPath>Lib</FilterPath>
+        <Groups>
+          <TestGroup>
+            <Name>LibDynamicsDC</Name>
+            <IsFilterGroup>false</IsFilterGroup>
+            <FilterWildcard>*.*</FilterWildcard>
+            <FilterPath>LibDynamicsDC</FilterPath>
+            <Groups />
+            <TestFiles>
+              <TestFile>
+                <Path>Lib\LibDynamicsDC\LibDynamicsDC.js</Path>
+              </TestFile>
+            </TestFiles>
+          </TestGroup>
+        </Groups>
+        <TestFiles>
+          <TestFile>
+            <Path>Lib\LibDynamicsDC.jslib</Path>
+          </TestFile>
+        </TestFiles>
+      </TestGroup>
+      <TestGroup>
         <Name>Reports</Name>
         <IsFilterGroup>true</IsFilterGroup>
         <FilterWildcard>*.trp</FilterWildcard>
