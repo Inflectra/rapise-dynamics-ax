@@ -16,6 +16,14 @@ The way of test parameterization and reading data from an Excel spreadsheet is d
 
 All functions are defined in `User.js`. Look into this file for details.
 
+**Note:** If you are on Rapise 6.6+ you may use global `EP` object.
+
+![DAX](Media/EP.png)
+
+Every function with `Ep` prefix is now also an action of `EP` (without the prefix, names with `Es` prefix rename intact). These two variants are equavalent:
+
+![Equivalents](Media/FunctionEP.png)
+
 ### EpLaunch
 
 Launches `Enterprise Portal` in a browser. `EnterprisePortalUrl`, `UserName`, `Password` must be set in `Config.xlsx`.

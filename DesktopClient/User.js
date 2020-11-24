@@ -282,6 +282,64 @@ function DaxChooseFile(/**string*/ fileName)
 }
 
 /**
+ * Reveals filter row for a grid via Ctrl+G shortcut
+ * @param grid Grid object id (must be in the object repository)
+ */
+function DaxShowGridFilterRow(/**objectId*/ grid)
+{
+	var gridObj = SeS(grid);
+	var maxRetry = 5;
+	while(maxRetry)
+	{
+		var columnCell = DynamicsAXTable_FindColumn(gridObj.instance, 1);
+		if (columnCell)
+		{
+			if (columnCell.rect.h < 30)
+			{
+				gridObj.DoSendKeys('^g');
+			}
+			else
+			{
+				break;
+			}
+		}
+		else
+		{
+			Tester.Assert("DaxShowGridFilter: first column is not found in " + grid);
+		}
+		maxRetry--;
+	}
+}
+
+/**
+ * Filters the grid by entering the value into the edit field under the column name and pressing Enter key. 
+ * To reveal the filter row use `DaxShowGridFilterRow`.
+ * @param grid Grid object id
+ * @param column Column caption
+ * @param value Filter value 
+ */
+function DaxFilterGridByColumn(/**objectId*/ grid, /**string*/ column, /**string*/ value)
+{
+	var gridObj = SeS(grid);
+	gridObj.DoClickColumn(column, "L", 20, 40);
+	//                 Header        Pane          Edit
+	var text = gridObj.GetChildAt(0).GetChildAt(0).GetChildAt(1);
+	var type = text.GetTypeName();
+	if (type == "Edit")
+	{
+		text = SeSTryMatch(text.instance, DynamicsAXTextBoxRule);
+		text.object_name = "text";
+		text.DoClick();
+		text.DoSetText(value);
+		text.DoSendKeys("{ENTER}"); 
+	}
+	else
+	{
+		Tester.Assert("DaxFilterGrid: unsupported grid type", false);
+	}
+}
+
+/**
  * Writes key/value pair to Output.xlsx
  * @param key
  * @param value

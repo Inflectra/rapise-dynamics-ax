@@ -55,6 +55,16 @@ function DAX_ChooseFile(/**string*/ fileName)
 	DaxChooseFile(fileName);
 }
 
+function DAX_ShowGridFilterRow(/**objectId*/ grid)
+{
+	DaxShowGridFilterRow(grid);
+}
+
+function DAX_FilterGridByColumn(/**objectId*/ grid, /**string*/ column, /**string*/ value)
+{
+	DaxFilterGridByColumn(grid, column, value)
+}
+
 if (typeof(SeSGlobalObject) != "undefined")
 {
 	SeSGlobalObject("DAX");

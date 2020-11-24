@@ -90,6 +90,22 @@
 				"returns": "",
 				"signature": "/**string*/ fileName",
 				"paramInfo": {}
+			},
+			{
+				"name": "ShowGridFilterRow",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**objectId*/ grid",
+				"paramInfo": {}
+			},
+			{
+				"name": "FilterGridByColumn",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**objectId*/ grid, /**string*/ column, /**string*/ value",
+				"paramInfo": {}
 			}
 		]
 	}
