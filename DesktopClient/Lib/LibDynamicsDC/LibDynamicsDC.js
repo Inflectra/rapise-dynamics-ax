@@ -65,6 +65,11 @@ function DAX_FilterGridByColumn(/**objectId*/ grid, /**string*/ column, /**strin
 	DaxFilterGridByColumn(grid, column, value)
 }
 
+function DAX_SortGridByColumn(/**objectId*/ grid, /**string*/ column, /**number*/ clicks)
+{
+	DaxSortGridByColumn(grid, column, clicks);
+}
+
 if (typeof(SeSGlobalObject) != "undefined")
 {
 	SeSGlobalObject("DAX");

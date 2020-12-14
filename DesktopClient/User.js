@@ -321,6 +321,7 @@ function DaxShowGridFilterRow(/**objectId*/ grid)
 function DaxFilterGridByColumn(/**objectId*/ grid, /**string*/ column, /**string*/ value)
 {
 	var gridObj = SeS(grid);
+	gridObj.DoClick(0,0);
 	gridObj.DoClickColumn(column, "L", 20, 40);
 	//                 Header        Pane          Edit
 	var text = gridObj.GetChildAt(0).GetChildAt(0).GetChildAt(1);
@@ -336,6 +337,22 @@ function DaxFilterGridByColumn(/**objectId*/ grid, /**string*/ column, /**string
 	else
 	{
 		Tester.Assert("DaxFilterGrid: unsupported grid type", false);
+	}
+}
+
+/**
+ * Clicks on a column caption to sort data in the grid
+ * @param grid Grid object id
+ * @param column Column caption
+ * @param clicks Click count
+ */
+function DaxSortGridByColumn(/**objectId*/ grid, /**string*/ column, /**number*/ clicks)
+{
+	var gridObj = SeS(grid);
+	for(var i = 0; i < clicks; i++)
+	{
+		gridObj.DoClick(0,0);
+		gridObj.DoClickColumn(column, "L", 20, 10);
 	}
 }
 

@@ -106,6 +106,14 @@
 				"returns": "",
 				"signature": "/**objectId*/ grid, /**string*/ column, /**string*/ value",
 				"paramInfo": {}
+			},
+			{
+				"name": "SortGridByColumn",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**objectId*/ grid, /**string*/ column, /**number*/ clicks",
+				"paramInfo": {}
 			}
 		]
 	}
