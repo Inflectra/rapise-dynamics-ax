@@ -321,7 +321,6 @@ function DaxShowGridFilterRow(/**objectId*/ grid)
 function DaxFilterGridByColumn(/**objectId*/ grid, /**string*/ column, /**string*/ value)
 {
 	var gridObj = SeS(grid);
-	gridObj.DoClick(0,0);
 	gridObj.DoClickColumn(column, "L", 20, 40);
 	//                 Header        Pane          Edit
 	var text = gridObj.GetChildAt(0).GetChildAt(0).GetChildAt(1);
@@ -351,7 +350,6 @@ function DaxSortGridByColumn(/**objectId*/ grid, /**string*/ column, /**number*/
 	var gridObj = SeS(grid);
 	for(var i = 0; i < clicks; i++)
 	{
-		gridObj.DoClick(0,0);
 		gridObj.DoClickColumn(column, "L", 20, 10);
 	}
 }
