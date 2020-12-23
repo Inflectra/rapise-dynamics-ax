@@ -70,6 +70,21 @@ function DAX_SortGridByColumn(/**objectId*/ grid, /**string*/ column, /**number*
 	DaxSortGridByColumn(grid, column, clicks);
 }
 
+function DAX_GetInfologMessageObject(/**objectId*/ tree, /**string*/ value)
+{
+	return DaxGetInfologMessageObject(tree, value);
+}
+
+function DAX_GetInfologMessage(/**objectId*/ tree, /**string*/ value)
+{
+	return DaxGetInfologMessage(tree, value);
+}
+
+function DAX_ClickInfologMessage(/**objectId*/ tree, /**string*/ value)
+{
+	return DaxClickInfologMessage(tree, value);
+}
+
 if (typeof(SeSGlobalObject) != "undefined")
 {
 	SeSGlobalObject("DAX");

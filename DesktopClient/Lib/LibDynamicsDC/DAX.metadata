@@ -114,6 +114,30 @@
 				"returns": "",
 				"signature": "/**objectId*/ grid, /**string*/ column, /**number*/ clicks",
 				"paramInfo": {}
+			},
+			{
+				"name": "GetInfologMessageObject",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**objectId*/ tree, /**string*/ value",
+				"paramInfo": {}
+			},
+			{
+				"name": "GetInfologMessage",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**objectId*/ tree, /**string*/ value",
+				"paramInfo": {}
+			},
+			{
+				"name": "ClickInfologMessage",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**objectId*/ tree, /**string*/ value",
+				"paramInfo": {}
 			}
 		]
 	}

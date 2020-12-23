@@ -355,6 +355,68 @@ function DaxSortGridByColumn(/**objectId*/ grid, /**string*/ column, /**number*/
 }
 
 /**
+ * Gets UI object of the infolog message according to the value pattern.
+ * @param tree Infolog tree object. Learn it to add to the repository.
+ * @param value Exact match string or regular expression starting with regex:
+ * @returns Object or null if nothing was found.
+ */
+function DaxGetInfologMessageObject(/**objectId*/ tree, /**string*/ value)
+{
+	var obj = SeS(tree);
+	if (obj)
+	{
+		var count = obj.GetChildrenCount();
+		for(var i = 0; i < count; i++)
+		{
+			var item = obj.GetChildAt(i);
+			if (item)
+			{
+				var message = item.GetName();
+				if (SeSCheckString(value, message))
+				{
+					return item;
+				}
+			}
+		}
+	}
+	else
+	{
+		Tester.Message("Infolog window is not found");
+	}
+	return null;
+}
+
+/**
+ * Gets text of the infolog message according to the value pattern.
+ * @param tree Infolog tree object. Learn it to add to the repository.
+ * @param value Exact match string or regular expression starting with regex:
+ * @returns Message text or null if nothing was found.
+ */
+function DaxGetInfologMessage(/**objectId*/ tree, /**string*/ value)
+{
+	var item = DaxGetInfologMessageObject(tree, value);
+	if (item)
+	{
+		return item.GetName();
+	}
+	return null;
+}
+
+/**
+ * Clicks on the infolog message according to the value pattern.
+ * @param tree Infolog tree object. Learn it to add to the repository.
+ * @param value Exact match string or regular expression starting with regex: 
+ */
+function DaxClickInfologMessage(/**objectId*/ tree, /**string*/ value)
+{
+	var item = DaxGetInfologMessageObject(tree, value);
+	if (item)
+	{
+		item.DoClick();
+	}
+}
+
+/**
  * Writes key/value pair to Output.xlsx
  * @param key
  * @param value
