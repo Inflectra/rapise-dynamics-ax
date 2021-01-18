@@ -70,6 +70,11 @@ function DAX_SortGridByColumn(/**objectId*/ grid, /**string*/ column, /**number*
 	DaxSortGridByColumn(grid, column, clicks);
 }
 
+function DAX_GridExpandDropdown(/**objectId*/ grid, /**number*/ row, /**string*/ col)
+{
+	DaxGridExpandDropdown(grid, row, col);
+}
+
 function DAX_GetInfologMessageObject(/**objectId*/ tree, /**string*/ value)
 {
 	return DaxGetInfologMessageObject(tree, value);

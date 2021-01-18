@@ -116,6 +116,14 @@
 				"paramInfo": {}
 			},
 			{
+				"name": "GridExpandDropdown",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**objectId*/ grid, /**number*/ row, /**string*/ col",
+				"paramInfo": {}
+			},
+			{
 				"name": "GetInfologMessageObject",
 				"description": "",
 				"type": "",

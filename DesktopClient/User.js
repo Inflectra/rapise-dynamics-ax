@@ -355,6 +355,42 @@ function DaxSortGridByColumn(/**objectId*/ grid, /**string*/ column, /**number*/
 }
 
 /**
+ * Expands dropdown for a cell in a grid. Clicks on a cell to set focus then clicks dropdown open button.
+ * @param grid Grid object id
+ * @param row Row number
+ * @param column Column caption
+ */
+function DaxGridExpandDropdown(/**objectId*/ grid, /**number*/ row, /**string*/ col)
+{
+	var obj = SeS(grid);
+	if (obj)
+	{
+		var cell = null;
+		try
+		{
+			cell = obj.GetCellObject(row, col);
+		}
+		catch(e)
+		{
+		}
+		if (cell)
+		{
+			var w = cell.GetWidth();
+			cell.DoClick();
+			obj.DoClickCell(row, col, "L", w - 10);
+		}
+		else
+		{
+			Tester.Assert("DaxGridExpandDropdown: cell [" + row + ", " + col + "] is not found in grid: " + grid, false);
+		}
+	}
+	else
+	{
+		Tester.Assert("DaxGridExpandDropdown: grid object is not found: " + grid, false);
+	}
+}
+
+/**
  * Gets UI object of the infolog message according to the value pattern.
  * @param tree Infolog tree object. Learn it to add to the repository.
  * @param value Exact match string or regular expression starting with regex:
