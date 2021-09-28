@@ -469,6 +469,14 @@ var saved_script_objects={
 	"G_FilterValue": {
 		"locations": [
 			{
+				"locator_name": "UIAutomation",
+				"location": {
+					"location": "param:location",
+					"window_name": "param:window_name",
+					"window_class": "regex:(WindowsForms10.)?Window.\\d+.app[a-z0-9_\\.]+"
+				}
+			},		
+			{
 				"locator_name": "UIAutomation2",
 				"location": {
 					"location": [
@@ -489,14 +497,6 @@ var saved_script_objects={
 					"window_class": "AxPopupFrame"
 				},
 				"enabled": false
-			},
-			{
-				"locator_name": "UIAutomation",
-				"location": {
-					"location": "param:location",
-					"window_name": "param:window_name",
-					"window_class": "regex:(WindowsForms10.)?Window.\\d+.app[a-z0-9_\\.]+"
-				}
 			}
 		],
 		"window_class": "AxMainFrame",
@@ -515,6 +515,14 @@ var saved_script_objects={
 	"G_FilterOpen": {
 		"locations": [
 			{
+				"locator_name": "UIAutomation",
+				"location": {
+					"location": "param:location",
+					"window_name": "param:window_name",
+					"window_class": "regex:(WindowsForms10.)?Window.\\d+.app[a-z0-9_\\.]+"
+				}
+			},		
+			{
 				"locator_name": "UIAutomation2",
 				"location": {
 					"location": [
@@ -529,14 +537,6 @@ var saved_script_objects={
 					],
 					"window_name": "param:window_name",
 					"window_class": "AxPopupFrame"
-				}
-			},
-			{
-				"locator_name": "UIAutomation",
-				"location": {
-					"location": "param:location",
-					"window_name": "param:window_name",
-					"window_class": "regex:(WindowsForms10.)?Window.\\d+.app[a-z0-9_\\.]+"
 				}
 			}
 		],
@@ -556,6 +556,14 @@ var saved_script_objects={
 	"G_FilterDropDown": {
 		"locations": [
 			{
+				"locator_name": "UIAutomation",
+				"location": {
+					"location": "param:location",
+					"window_name": "param:window_name",
+					"window_class": "param:window_class"
+				}
+			},		
+			{
 				"locator_name": "UIAutomation2",
 				"location": {
 					"location": [
@@ -568,14 +576,6 @@ var saved_script_objects={
 							"value": "DropDown"
 						}
 					],
-					"window_name": "param:window_name",
-					"window_class": "param:window_class"
-				}
-			},
-			{
-				"locator_name": "UIAutomation",
-				"location": {
-					"location": "param:location",
 					"window_name": "param:window_name",
 					"window_class": "param:window_class"
 				}
@@ -597,6 +597,14 @@ var saved_script_objects={
 	"G_FilterApply": {
 		"locations": [
 			{
+				"locator_name": "UIAutomation",
+				"location": {
+					"location": "param:location",
+					"window_name": "param:window_name",
+					"window_class": "regex:(WindowsForms10.)?Window.\\d+.app[a-z0-9_\\.]+"
+				}
+			},		
+			{
 				"locator_name": "UIAutomation2",
 				"location": {
 					"location": [
@@ -611,14 +619,6 @@ var saved_script_objects={
 					],
 					"window_name": "param:window_name",
 					"window_class": "AxPopupFrame"
-				}
-			},
-			{
-				"locator_name": "UIAutomation",
-				"location": {
-					"location": "param:location",
-					"window_name": "param:window_name",
-					"window_class": "regex:(WindowsForms10.)?Window.\\d+.app[a-z0-9_\\.]+"
 				}
 			}
 		],
